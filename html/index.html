@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ejemplo UI States</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+
+  <body>
+    <main class="card">
+      <header>
+        <h1>Buscador de clima</h1>
+        <p class="muted">
+          Busca una ciudad
+        </p>
+      </header>
+
+      
+      <form id="searchForm" class="row">
+        <input
+          id="cityInput"
+          name="city"
+          type="text"
+          placeholder="Ej: Monterrey, Chicago, Madrid..."
+          autocomplete="off"
+          required
+        />
+        <button id="searchBtn" type="submit">Buscar</button>
+      </form>
+
+      <!-- UI States -->
+      <p id="status" class="status">Estado: idle</p>
+
+      <div id="loader" class="panel hidden" aria-live="polite">
+        Cargando…
+      </div>
+
+      <div id="errorBox" class="panel error hidden" role="alert">
+        <strong>Error:</strong>
+        <span id="errorMsg"></span>
+        <div class="row">
+          <button id="retryBtn" type="button">Reintentar</button>
+        </div>
+      </div>
+
+      <div id="emptyBox" class="panel empty hidden">
+        No hubo resultados para esa ciudad. Intenta otro nombre.
+      </div>
+
+      <!-- RESULTADOS -->
+      <section id="results" class="hidden">
+        <h2 id="placeTitle" class="h2"></h2>
+        <ul class="list">
+          <li><strong>Temperatura:</strong> <span id="temp"></span></li>
+          <li><strong>Viento:</strong> <span id="wind"></span></li>
+          <li><strong>Hora:</strong> <span id="time"></span></li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="../js/app.js"></script>
+  </body>
+</html>
